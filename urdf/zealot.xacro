@@ -1,0 +1,371 @@
+<?xml version="1.0" ?>
+<robot name="zealot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find zealot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find zealot_description)/urdf/zealot.trans" />
+<xacro:include filename="$(find zealot_description)/urdf/zealot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.011606570753639786 -9.061627302688335e-06 0.1106691321859194" rpy="0 0 0"/>
+    <mass value="11.365858854893565"/>
+    <inertia ixx="0.062084" iyy="0.063994" izz="0.055109" ixy="-2e-06" iyz="-6e-06" ixz="0.001556"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_link"/>
+<joint name="lidar_joint" type="fixed">
+  <parent link="base_link"/>
+  <child  link="lidar_link"/>
+  <origin xyz="0.011306570753639786 -9.061627302688335e-06 0.152" rpy="0 0 0"/>
+</joint>
+
+<link name="right_hipjoint_pitch_1">
+  <inertial>
+    <origin xyz="0.038053074253933505 9.061261951895383e-06 -0.002895874311847277" rpy="0 0 0"/>
+    <mass value="0.7994976795430209"/>
+    <inertia ixx="0.000395" iyy="0.000382" izz="0.000267" ixy="-0.0" iyz="-3e-06" ixz="2.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.018602 0.045 0.0695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_hipjoint_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.018602 0.045 0.0695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_hipjoint_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_hipjoint_pitch_1">
+  <inertial>
+    <origin xyz="0.03805307453870613 -9.062957449956777e-06 -0.002895872453760495" rpy="0 0 0"/>
+    <mass value="0.7994976235700836"/>
+    <inertia ixx="0.000395" iyy="0.000382" izz="0.000267" ixy="0.0" iyz="3e-06" ixz="2.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.018602 -0.045 0.0695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_hipjoint_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.018602 -0.045 0.0695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_hipjoint_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_middle_leg_1">
+  <inertial>
+    <origin xyz="0.008957337499018739 -0.026013550259184393 -0.11676816804761428" rpy="0 0 0"/>
+    <mass value="0.8322714506735266"/>
+    <inertia ixx="0.000938" iyy="0.000845" izz="0.000339" ixy="2e-06" iyz="3e-06" ixz="-7.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.021898 -0.071 0.0895" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_middle_leg_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.021898 -0.071 0.0895" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_middle_leg_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_middle_leg_1">
+  <inertial>
+    <origin xyz="0.008957345698257499 0.026013413888078513 -0.11676817396555894" rpy="0 0 0"/>
+    <mass value="0.8322715098033127"/>
+    <inertia ixx="0.000938" iyy="0.000845" izz="0.000339" ixy="-2e-06" iyz="-3e-06" ixz="-7.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.021898 0.071 0.0895" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_middle_leg_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.021898 0.071 0.0895" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_middle_leg_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_lower_leg_1">
+  <inertial>
+    <origin xyz="-0.00018849879196688318 -0.025998165327886985 -0.06788649486445611" rpy="0 0 0"/>
+    <mass value="0.10974623051687235"/>
+    <inertia ixx="0.000263" iyy="0.000201" izz="7.9e-05" ixy="-0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.021898 -0.071 0.2295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_lower_leg_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.021898 -0.071 0.2295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_lower_leg_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_ankle_pitch_1">
+  <inertial>
+    <origin xyz="-0.0024470362551210385 -0.026009291373849705 0.017104127558421944" rpy="0 0 0"/>
+    <mass value="0.7994976235700851"/>
+    <inertia ixx="0.000395" iyy="0.000382" izz="0.000267" ixy="0.0" iyz="3e-06" ixz="2.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.021899 -0.071001 0.3695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_ankle_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.021899 -0.071001 0.3695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_ankle_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_foot_1">
+  <inertial>
+    <origin xyz="0.004668773682356421 -0.005778613439945665 -0.03625900660141734" rpy="0 0 0"/>
+    <mass value="1.0884519024049462"/>
+    <inertia ixx="0.001203" iyy="0.002956" izz="0.002851" ixy="0.000171" iyz="-0.000144" ixz="0.000613"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.018601 0.045001 0.3495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.018601 0.045001 0.3495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_foot_1">
+  <inertial>
+    <origin xyz="0.004668771794329316 0.005778461202235442 -0.036258990881799624" rpy="0 0 0"/>
+    <mass value="1.0884519419865217"/>
+    <inertia ixx="0.001203" iyy="0.002956" izz="0.002851" ixy="-0.000171" iyz="0.000144" ixz="0.000613"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.018601 -0.045001 0.3495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.018601 -0.045001 0.3495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_lower_leg_1">
+  <inertial>
+    <origin xyz="-0.00018849881957317544 0.026001355685012648 -0.06788649487584444" rpy="0 0 0"/>
+    <mass value="0.10974623051687242"/>
+    <inertia ixx="0.000263" iyy="0.000201" izz="7.9e-05" ixy="-0.0" iyz="-0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.021898 0.071001 0.2295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_lower_leg_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.021898 0.071001 0.2295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_lower_leg_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_ankle_pitch_1">
+  <inertial>
+    <origin xyz="-0.0024470365904269917 0.02600901574342311 0.017104125692206706" rpy="0 0 0"/>
+    <mass value="0.7994976795430198"/>
+    <inertia ixx="0.000395" iyy="0.000382" izz="0.000267" ixy="-0.0" iyz="-3e-06" ixz="2.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.021899 0.071001 0.3695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_ankle_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.021899 0.071001 0.3695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_ankle_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_hipjoint_abd_1">
+  <inertial>
+    <origin xyz="-0.05591426666899567 1.0370827807637539e-10 -0.048554165651671206" rpy="0 0 0"/>
+    <mass value="0.6286646646290869"/>
+    <inertia ixx="0.000289" iyy="0.000482" izz="0.000312" ixy="0.0" iyz="0.0" ixz="-0.000113"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.022338 0.045 0.0015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_hipjoint_abd_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.022338 0.045 0.0015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/right_hipjoint_abd_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_hipjoint_abd_1">
+  <inertial>
+    <origin xyz="-0.05591426678232435 -3.2614189127144755e-12 -0.04805416557930881" rpy="0 0 0"/>
+    <mass value="0.6286646646192796"/>
+    <inertia ixx="0.000289" iyy="0.000482" izz="0.000312" ixy="-0.0" iyz="-0.0" ixz="-0.000113"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.022338 -0.045 0.002" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_hipjoint_abd_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.022338 -0.045 0.002" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find zealot_description)/meshes/left_hipjoint_abd_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="rotate_11" type="continuous">
+  <origin xyz="-0.04094 0.0 -0.068" rpy="0 0 0"/>
+  <parent link="right_hipjoint_abd_1"/>
+  <child link="right_hipjoint_pitch_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="rotate_10" type="continuous">
+  <origin xyz="-0.04094 0.0 -0.0675" rpy="0 0 0"/>
+  <parent link="left_hipjoint_abd_1"/>
+  <child link="left_hipjoint_pitch_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="rotate_14" type="continuous">
+  <origin xyz="0.0405 0.026 -0.02" rpy="0 0 0"/>
+  <parent link="left_hipjoint_pitch_1"/>
+  <child link="left_middle_leg_1"/>
+  <axis xyz="-0.0 1.0 3e-06"/>
+</joint>
+
+<joint name="rotate_15" type="continuous">
+  <origin xyz="0.0405 -0.026 -0.02" rpy="0 0 0"/>
+  <parent link="right_hipjoint_pitch_1"/>
+  <child link="right_middle_leg_1"/>
+  <axis xyz="-0.0 -1.0 4e-06"/>
+</joint>
+
+<joint name="rotate_16" type="continuous">
+  <origin xyz="0.0 0.0 -0.14" rpy="0 0 0"/>
+  <parent link="left_middle_leg_1"/>
+  <child link="left_lower_leg_1"/>
+  <axis xyz="-0.0 1.0 3e-06"/>
+</joint>
+
+<joint name="rotate_18" type="continuous">
+  <origin xyz="1e-06 1e-06 -0.14" rpy="0 0 0"/>
+  <parent link="left_lower_leg_1"/>
+  <child link="left_ankle_pitch_1"/>
+  <axis xyz="-0.0 1.0 3e-06"/>
+</joint>
+
+<joint name="rotate_21" type="continuous">
+  <origin xyz="-0.0405 0.026 0.02" rpy="0 0 0"/>
+  <parent link="right_ankle_pitch_1"/>
+  <child link="right_foot_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="rotate_20" type="continuous">
+  <origin xyz="-0.0405 -0.026 0.02" rpy="0 0 0"/>
+  <parent link="left_ankle_pitch_1"/>
+  <child link="left_foot_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="rotate_17" type="continuous">
+  <origin xyz="0.0 -1e-06 -0.14" rpy="0 0 0"/>
+  <parent link="right_middle_leg_1"/>
+  <child link="right_lower_leg_1"/>
+  <axis xyz="-0.0 -1.0 4e-06"/>
+</joint>
+
+<joint name="rotate_19" type="continuous">
+  <origin xyz="1e-06 0.0 -0.14" rpy="0 0 0"/>
+  <parent link="right_lower_leg_1"/>
+  <child link="right_ankle_pitch_1"/>
+  <axis xyz="-0.0 -1.0 4e-06"/>
+</joint>
+
+<joint name="rotate_13" type="continuous">
+  <origin xyz="0.022338 -0.045 -0.0015" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_hipjoint_abd_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="rotate_12" type="continuous">
+  <origin xyz="0.022338 0.045 -0.002" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_hipjoint_abd_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+</robot>
