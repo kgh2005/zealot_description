@@ -25,10 +25,10 @@
   </collision>
 </link>
 
-<link name="lidar_link"/>
+<link name="velodyne"/>
 <joint name="lidar_joint" type="fixed">
   <parent link="base_link"/>
-  <child  link="lidar_link"/>
+  <child  link="velodyne"/>
   <origin xyz="0.011306570753639786 -9.061627302688335e-06 0.152" rpy="0 0 0"/>
 </joint>
 
